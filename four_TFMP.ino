@@ -1,5 +1,5 @@
-# Four TFmini Plus LiDAR 
-# data time --> distance1 strenght1 distance2 strenght2 distance3 strenght3 distance4 strenght4
+// Four TFmini Plus LiDAR 
+// data time --> distance1 strenght1 distance2 strenght2 distance3 strenght3 distance4 strenght4
 
 #include <SoftwareSerial.h>  
 
