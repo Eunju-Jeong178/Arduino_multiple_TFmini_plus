@@ -48,8 +48,9 @@ void setup() {
 }
 
 void loop() {
-  delay(50); // 20Hz
-
+  //delay(50); // 20Hz
+  delay(33); // 30Hz
+  
   int distance1 = 0;
   int strength1 = 0;
   boolean receiveComplete1 = false;
