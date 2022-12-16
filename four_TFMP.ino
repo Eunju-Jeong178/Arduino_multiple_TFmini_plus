@@ -1,9 +1,9 @@
-// Four TFmini Plus LiDAR 
-// data time --> distance1 strenght1 distance2 strenght2 distance3 strenght3 distance4 strenght4
+// Measuring distances using four TFmini Plus LiDARs
+// distance1[cm] distance2[cm] distance3[cm] distance4[cm]
 
 #include <SoftwareSerial.h>  
 
-//SoftwareSerial port(TX, RX);
+//SoftwareSerial port(TX, RX); //(green wire, white wire)
 SoftwareSerial portOne(2, 2);
 SoftwareSerial portTwo(3, 3); 
 SoftwareSerial portThree(8, 7);
@@ -48,6 +48,8 @@ void setup() {
 }
 
 void loop() {
+  delay(50); // 20Hz
+
   int distance1 = 0;
   int strength1 = 0;
   boolean receiveComplete1 = false;
@@ -67,11 +69,13 @@ void loop() {
   while(!receiveComplete1) {
     getTFminiData(&portOne, &distance1, &strength1, &receiveComplete1);
     if(receiveComplete1) {
+      // Serial.print(distance1);
+      // Serial.print("cm\t");
+      // Serial.print("strength1: ");
+      // Serial.print(strength1);
+      // Serial.print("\t");
       Serial.print(distance1);
-      Serial.print("cm\t");
-      Serial.print("strength1: ");
-      Serial.print(strength1);
-      Serial.print("\t");
+      Serial.print(" ");
     }
   }
   receiveComplete1 = false;
@@ -79,11 +83,13 @@ void loop() {
   while(!receiveComplete2) {
     getTFminiData(&portTwo, &distance2, &strength2, &receiveComplete2);
     if(receiveComplete2) {
+      // Serial.print(distance2);
+      // Serial.print("cm\t");
+      // Serial.print("strength2: ");
+      // Serial.print(strength2);
+      // Serial.print("\t");
       Serial.print(distance2);
-      Serial.print("cm\t");
-      Serial.print("strength2: ");
-      Serial.print(strength2);
-      Serial.print("\t")
+      Serial.print(" ");
     }
   }
   receiveComplete2 = false;
@@ -91,11 +97,13 @@ void loop() {
   while(!receiveComplete3) {
     getTFminiData(&portThree, &distance3, &strength3, &receiveComplete3);
     if(receiveComplete3) {
+      // Serial.print(distance3);
+      // Serial.print("cm\t");
+      // Serial.print("strength3: ");
+      // Serial.print(strength3);
+      // Serial.print("\t");
       Serial.print(distance3);
-      Serial.print("cm\t");
-      Serial.print("strength3: ");
-      Serial.print(strength3);
-      Serial.print("\t");
+      Serial.print(" ");
     }
   }
   receiveComplete3 = false;
@@ -103,10 +111,11 @@ void loop() {
   while(!receiveComplete4) {
     getTFminiData(&portFour, &distance4, &strength4, &receiveComplete4);
     if(receiveComplete4) {
-      Serial.print(distance4);
-      Serial.print("cm\t");
-      Serial.print("strength4: ");
-      Serial.println(strength4);
+      // Serial.print(distance4);
+      // Serial.print("cm\t");
+      // Serial.print("strength4: ");
+      // Serial.println(strength4);
+      Serial.println(distance4);
     }
   }
   receiveComplete4 = false; 
